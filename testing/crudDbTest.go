@@ -14,12 +14,11 @@ func CreateUserDbTest(db *sql.DB) error {
 	fmt.Println("Create User Saved to Database Test")
 
 	newUserObject := model.NewUser()
-	newUserObject.ID = "U3"
-	newUserObject.Fullname = "Asep Uye"
-	newUserObject.Nickname = "Asep"
-	newUserObject.Username = "asepu"
+	newUserObject.Fullname = "Sudirman Said"
+	newUserObject.Nickname = "Sudirman"
+	newUserObject.Username = "sudirmans"
 	newUserObject.NoHP = "081234567890"
-	newUserObject.Email = "asepu@gmail.com"
+	newUserObject.Email = "sudirmans@gmail.com"
 	newUserObject.Password = "secret"
 	newUserObject.Image = "https://img.okezone.com/content/2017/08/11/33/1753946/pendam-rindu-untuk-anak-jono-amstrong-masih-takut-bertemu-keluarga-mantan-istri-JfpZnS320L.jpg"
 	newUserObject.Office = "Kantor 2"
@@ -41,13 +40,13 @@ func UpdateUserDbTest(db *sql.DB) error {
 	fmt.Println("===============================================================")
 	fmt.Println("Update User Saved to Database Test")
 
-	newUserObject := model.NewUser()
-	newUserObject.ID = "U1"
-	newUserObject.Fullname = "Sujono Joni N Jini Edited"
-	newUserObject.Nickname = "Jono"
-	newUserObject.Username = "sujonojnj"
+	newUserObject := model.UpdatedUser()
+	newUserObject.ID = "P1"
+	newUserObject.Fullname = "Marka Jalan Newest Banget"
+	newUserObject.Nickname = "Marka"
+	newUserObject.Username = "markaj"
 	newUserObject.NoHP = "081234567890"
-	newUserObject.Email = "sujonojnj@gmail.com"
+	newUserObject.Email = "markaj@gmail.com"
 	newUserObject.Password = "secret"
 	newUserObject.Image = "https://img.okezone.com/content/2017/08/11/33/1753946/pendam-rindu-untuk-anak-jono-amstrong-masih-takut-bertemu-keluarga-mantan-istri-JfpZnS320L.jpg"
 	newUserObject.Office = "Kantor 2"
@@ -69,7 +68,7 @@ func DeleteUserDbTest(db *sql.DB) error {
 	fmt.Println("===================================================================")
 	fmt.Println("Delete User in Database Test")
 
-	id := "U2"
+	id := "U3"
 	userRepositoryPostgres := repository.NewUserRepositoryPostgres(db)
 
 	err := controller.DeleteUser(id, userRepositoryPostgres)

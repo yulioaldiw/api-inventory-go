@@ -2,6 +2,8 @@ package model
 
 import (
 	"time"
+
+	"api-inventory-go/helper"
 )
 
 type User struct {
@@ -22,6 +24,14 @@ type User struct {
 type Users []User
 
 func NewUser() *User {
+	return &User{
+		ID:        helper.GenerateUserID(),
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
+	}
+}
+
+func UpdatedUser() *User {
 	return &User{
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),

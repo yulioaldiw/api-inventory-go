@@ -68,36 +68,41 @@ func (r *userRepositoryPostgres) Create(user *model.User) error {
 }
 
 func (r *userRepositoryPostgres) Update(id string, user *model.User) error {
-	query := `
+	err := IsExist(id, r)
+	if err != nil {
+		return err
+	} else {
+		query := `
 		UPDATE users
 		SET fullname=$1, nickname=$2, username=$3, nohp=$4, email=$5, password=$6, image=$7, office=$8, role=$9, updatedAt=$10
 		WHERE id=$11`
 
-	statement, err := r.db.Prepare(query)
-	if err != nil {
-		return err
+		statement, err := r.db.Prepare(query)
+		if err != nil {
+			return err
+		}
+
+		defer statement.Close()
+
+		_, err = statement.Exec(
+			user.Fullname,
+			user.Nickname,
+			user.Username,
+			user.NoHP,
+			user.Email,
+			user.Password,
+			user.Image,
+			user.Office,
+			user.Role,
+			user.UpdatedAt,
+			id,
+		)
+		if err != nil {
+			return err
+		}
+
+		return nil
 	}
-
-	defer statement.Close()
-
-	_, err = statement.Exec(
-		user.Fullname,
-		user.Nickname,
-		user.Username,
-		user.NoHP,
-		user.Email,
-		user.Password,
-		user.Image,
-		user.Office,
-		user.Role,
-		user.UpdatedAt,
-		id,
-	)
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (r *userRepositoryPostgres) Delete(id string) error {
