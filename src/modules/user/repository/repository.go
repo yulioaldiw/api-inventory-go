@@ -1,8 +1,6 @@
 package repository
 
-import (
-	"api-inventory-go/src/modules/user/model"
-)
+import "api-inventory-go/src/modules/user/model"
 
 type UserRepository interface {
 	Create(*model.User) error

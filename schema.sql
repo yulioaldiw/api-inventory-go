@@ -1,4 +1,4 @@
--- Create tabel user
+-- Create tabel users
 CREATE TABLE users (
 id VARCHAR(30) UNIQUE NOT NULL,
 fullname VARCHAR(255) NOT NULL,
@@ -13,3 +13,11 @@ role VARCHAR(30) NOT NULL,
 createdAt TIMESTAMP NOT NULL,
 updatedAt TIMESTAMP);
 
+-- Create tabel goods
+CREATE TABLE goods (
+id VARCHAR(30) UNIQUE NOT NULL,
+name VARCHAR(255) NOT NULL,
+stockmin SMALLINT NOT NULL,
+stock SMALLINT NOT NULL,
+createdAt TIMESTAMP NOT NULL,
+updatedAt TIMESTAMP);

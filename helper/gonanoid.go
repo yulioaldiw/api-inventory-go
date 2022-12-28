@@ -14,3 +14,12 @@ func GenerateUserID() string {
 
 	return fmt.Sprintf("user-%s", id)
 }
+
+func GenerateGoodID() string {
+	id, err := gonanoid.New()
+	if err != nil {
+		panic(err)
+	}
+
+	return fmt.Sprintf("good-%s", id)
+}

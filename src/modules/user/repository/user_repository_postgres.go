@@ -1,9 +1,10 @@
 package repository
 
 import (
-	"api-inventory-go/src/modules/user/model"
 	"database/sql"
 	"log"
+
+	"api-inventory-go/src/modules/user/model"
 )
 
 type userRepositoryPostgres struct {
