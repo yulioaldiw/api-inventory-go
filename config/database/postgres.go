@@ -33,7 +33,7 @@ func GetPostgresDB() (*sql.DB, error) {
 		return nil, err
 	}
 
-	log.Printf(`Database named [%s] with host: [%s] connected!`, dbName, host)
+	log.Printf(`Database named [%s] with host: [%s] and user: [%s] has been connected!`, dbName, host, user)
 	return db, nil
 
 }
